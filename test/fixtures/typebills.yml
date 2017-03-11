@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  bills: one
+  sections: one
+  users: one
+
+two:
+  name: MyString
+  bills: two
+  sections: two
+  users: two

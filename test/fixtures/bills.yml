@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  section: MyString
+  dvno: MyString
+  month: 2017-03-11
+  typebill: MyString
+  compactor: MyString
+  rack: MyString
+  shelf: MyString
+
+two:
+  section: MyString
+  dvno: MyString
+  month: 2017-03-11
+  typebill: MyString
+  compactor: MyString
+  rack: MyString
+  shelf: MyString
