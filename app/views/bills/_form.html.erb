@@ -1,0 +1,109 @@
+<%= form_for(bill) do |f| %>
+  <% if bill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+
+      <ul>
+      <% bill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="row">
+  
+ <div class="col-lg-6 col-md-6">
+  <div class="control-group">
+    <%= f.label :section, class: 'control-label' %>
+    <div class="controls">
+      <%= f.select(:section, options_for_select([["ADMIN","ADMIN"],["ACCOUNTS","ACCOUNTS"],["OACELL", "OACELL"],["TADA", "TADA"], ["MEDICALL", "MEDICALL"],["STORE-I", "STORE-I"],["STORE-II", "STORE-II"],["MISC", "MISC"],["SFD-I", "SFD-I"],["SFD-II", "SFD-II"],["PAY-I", "PAY-I"],["PAY-II", "PAY-II"],["PAY-III", "PAY-III"],["R-SECTION", "R-SECTION"],["IA CELL", "IA CELL"],["CAG", "CAG"],["SINGLE WINDOW", "SINGLE WINDOW"], ["NPS", "NPS"],["FUND CELL", "FUND CELL"],["LAO","LAO"], ["D-SECTION", "D-SECTION"]], :selected => f.object.section), :include_blank => true) %>
+  </div>
+  </div>
+  </div>
+
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+  
+    <%= f.label :month, class: 'control-label' %>
+    <div class="controls">
+    <%= f.date_select :month, class: 'control-label' %>
+  </div>
+</div>
+</div>
+</div>
+<br>
+
+
+<div class="row">
+ <div class="col-lg-6 col-md-6">
+  <div class="control-group">
+    <%= f.label :dvno, class: 'control-label' %>
+    <div class="controls">
+    <%= f.text_field :dvno, class: 'control-label' %>
+  </div>
+</div>
+</div>
+
+  <div class="col-lg-6 col-md-6">
+  <div class="control-group">
+    <%= f.label :Billtype, class: 'control-label' %>
+    <div class="controls">
+   <%= f.select(:typebill, options_for_select([["LOCAL PURCHASE","LOCAL PURCHASE"],["CONTRACT BILLS","CONTRACT BILLS"],["TRANSPORT", "TRANSPORT"],["CASH PURCHASE", "CASH PURCHASE"], ["IMPRESET", "IMPRESET"],["DEPOSITOR", "DEPOSITOR"],["RCP", "RCP"],["AMC", "AMC"],["PRO RATA", "PRO RATA"],["ADVANCE", "ADVANCE"]], :selected => f.object.section), :include_blank => true) %>
+  </div>
+</div>
+</div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+  <div class="control-group">
+ 
+    <%= f.label :compactor, class: 'control-label' %>
+    <div class="controls">
+    <%= f.select(:compactor, options_for_select([["1","1"],["2","2"],["3", "3"],["4", "4"], ["5", "5"],["6", "6"],["7", "7"],["8", "8"],["9", "9"],["10", "10"],["11", "11"],["12", "12"],["13", "13"],["14", "14"],["15", "15"],["16", "16"],["17", "17"], ["18", "18"],["19", "19"],["20","20"], ["21", "21"]], :selected => f.object.compactor), :include_blank => true) %>
+  </div>
+</div>
+</div>
+
+ <div class="col-lg-6 col-md-6">
+  <div class="control-group">
+    <%= f.label :rack, class: 'control-label' %>
+    <div class="controls">
+   <%= f.select(:rack, options_for_select([["A","A"],["B","B"],["C", "C"]], :selected => f.object.rack), :include_blank => true) %>
+  </div>
+</div>
+</div>
+</div>
+<br>
+
+<div class="row">
+  <div class="col-lg-6 col-md-6">
+  <div class="control-group">
+    <%= f.label :shelf, class: 'control-label' %>
+    <div class="controls">
+    <%= f.select(:shelf, options_for_select([["A1","A1"],["A2","A2"],["A3", "A3"],["A4", "A4"], ["A5", "A5"],["A6", "A6"],["A7", "A7"],["A8", "A8"],["A9", "A9"],["A10", "A10"],["A11", "A11"],["A12", "A12"]], :selected => f.object.shelf), :include_blank => true) %>
+  </div>
+</div>
+</div>
+<!--
+<% if can? :manage, User %>
+
+  <div class="col-lg-6 col-md-6">
+  <div class="control-group">
+    <%= f.label :user_id, class: 'control-label' %>
+    <div class="controls">
+    <%= f.text_field :user_id, class: 'control-label' %>
+  </div>
+</div>
+</div>
+<% end %>
+-->
+</div>
+<br>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

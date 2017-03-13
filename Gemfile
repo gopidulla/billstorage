@@ -29,6 +29,12 @@ gem 'rails_admin', '>= 1.0.0.rc'
 
 gem 'cancancan'
 
+gem 'bootstrap-sass'
+
+gem 'will_paginate'
+
+gem 'bootstrap-datepicker-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

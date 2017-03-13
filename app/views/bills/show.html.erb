@@ -1,0 +1,49 @@
+
+
+<div class="border-form-div">
+<p>
+  <strong>Section:</strong>
+  <%= @bill.section %>
+</p>
+
+<p>
+  <strong>Month:</strong>
+  <%= @bill.month %>
+</p>
+
+<p>
+  <strong>Dvno:</strong>
+  <%= @bill.dvno %>
+</p>
+
+<p>
+  <strong>Billtype:</strong>
+  <%= @bill.typebill %>
+</p>
+
+<p>
+  <strong>Compactor:</strong>
+  <%= @bill.compactor %>
+</p>
+
+<p>
+  <strong>Rack:</strong>
+  <%= @bill.rack %>
+</p>
+
+<p>
+  <strong>Shelf:</strong>
+  <%= @bill.shelf %>
+</p>
+<!--
+<p>
+  <strong>User:</strong>
+  <%= @bill.user_id %>
+</p>
+-->
+<% if can? :manage, User %>
+<%= link_to 'Edit', edit_bill_path(@bill), class: 'btn btn-min btn-info' %> |
+<% end %>
+<%= link_to 'Back', bills_path, class: 'btn btn-min btn-default' %>
+
+</div>

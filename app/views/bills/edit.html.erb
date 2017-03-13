@@ -1,0 +1,12 @@
+<div class="border-form-div">
+
+<h1>Editing Bill</h1>
+
+<%= render 'form', bill: @bill %>
+
+<% if can? :manage, User %>
+<%= link_to 'Show', @bill, class: 'btn btn-min btn-info' %>
+ | <% end %>
+<%= link_to 'Back', bills_path, class: 'btn btn-min btn-default' %>
+
+</div>

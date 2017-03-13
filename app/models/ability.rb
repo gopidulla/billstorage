@@ -12,8 +12,22 @@ if user.superadmin_role?
       can :dashboard                  # allow access to dashboard
 end
 if user.supervisor_role?
+      can :read, :all
+      can :edit, Bill
+      can :update, Bill
+      can :destroy, Bill
       can :manage, User
 end
+
+if user.user_role?
+      #can [:create, :show], User, :id => user.id
+
+      can :create, :all
+    
+      can :read, Bill, :user_id => user.id
+     
+    
+    end
     #   user ||= User.new # guest user (not logged in)
     #   if user.admin?
     #     can :manage, :all
