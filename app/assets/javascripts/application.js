@@ -11,16 +11,16 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
+//= require bootstrap-sprockets
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
 
 
-document.addEventListener("turbolinks:load", function() {
-  my_func();
-})
 
- $(document).ready(function(){
+ $(document).on('ready turbolinks:load', function(){
     $('.datepicker').datepicker({
     	dateFormat: "yy-mm-dd"
     }).datepicker("setDate", "0");
@@ -30,10 +30,10 @@ document.addEventListener("turbolinks:load", function() {
 
 
 
+blinker = function() {
+  $('.blink_me').fadeOut(100);
+  $('.blink_me').fadeIn(500);
+};
 
-function blinker() {
-    $('.blink_me').fadeOut(100);
-    $('.blink_me').fadeIn(1000);
-}
+setInterval(blinker, 1000);
 
-setInterval(blinker, 100000);
