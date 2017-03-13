@@ -33,6 +33,9 @@ gem 'bootstrap-sass'
 
 gem 'will_paginate'
 
+gem 'jquery-turbolinks'
+
+
 #gem 'momentjs-rails'
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
