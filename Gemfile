@@ -33,7 +33,12 @@ gem 'bootstrap-sass'
 
 gem 'will_paginate'
 
-gem 'bootstrap-datepicker-rails'
+#gem 'momentjs-rails'
+
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
