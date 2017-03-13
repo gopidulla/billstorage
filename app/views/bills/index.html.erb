@@ -1,0 +1,66 @@
+
+
+<div class="row">
+
+<div class="col-xs-6 col-md-4 pull-right">
+Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hidden="true"></span>
+ <span class="blink_me"><%= link_to 'Click Here',  new_bill_path, class: 'btn btn-min btn-success' %> </span>
+</div>
+</div>
+
+<div class="row">
+<h1>Bills</h1>
+</div>
+
+
+<div class="media">
+ 
+  <div class="media-body">
+    <table class="table table-hover">  
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Month</th>
+      <th>Dvno</th>
+      <th>Billtype</th>
+      <th>Compactor</th>
+      <th>Rack</th>
+      <th>Shelf</th>
+      <!--
+      <th>User</th> -->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.section %></td>
+        <td><%= bill.month %></td>
+        <td><%= bill.dvno %></td>
+        <td><%= bill.typebill %></td>
+        <td><%= bill.compactor %></td>
+        <td><%= bill.rack %></td>
+        <td><%= bill.shelf %></td>
+        <!--
+        <td><%= bill.user_id %></td> -->
+        
+        <td><%= link_to 'Show', bill, class: 'btn btn-sm btn-info' %></td>
+        <% if can? :manage, User %>
+        <td><%= link_to 'Edit', edit_bill_path(bill), class: 'btn btn-sm btn-success' %></td>
+       
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+<div class="apple_pagination">
+   
+    <%= will_paginate @complaints, :container => false %>
+  </div>
+
+</div>

@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+document.addEventListener("turbolinks:load", function() {
+  my_func();
+})
+
+ $(document).ready(function(){
+    $('.datepicker').datepicker({
+    	dateFormat: "yy-mm-dd"
+    }).datepicker("setDate", "0");
+    });
+    
+
+
+
+
+
+function blinker() {
+    $('.blink_me').fadeOut(100);
+    $('.blink_me').fadeIn(1000);
+}
+
+setInterval(blinker, 100000);
