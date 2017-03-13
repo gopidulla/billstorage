@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
 
@@ -26,8 +27,9 @@ document.addEventListener("turbolinks:load", function() {
     }).datepicker("setDate", "0");
     });
     
-
-
+ $(document).ready(function(){
+    $('.datepicker').datepicker();
+  });
 
 
 
