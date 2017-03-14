@@ -8,7 +8,8 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.accessible_by(current_ability).paginate(:page => params[:page]).order('user_id').per_page(10).order(created_at: :desc)#all
+    @bills = Bill.accessible_by(current_ability).paginate(:page => params[:page]).order('user_id').per_page(10).order(created_at: :desc).search(params[:search])#all
+  
   end
 
   # GET /bills/1

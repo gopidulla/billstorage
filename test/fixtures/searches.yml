@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  keywords: MyString
+  section: MyString
   month: 2017-03-14
   dvno: MyString
 
 two:
+  keywords: MyString
+  section: MyString
   month: 2017-03-14
   dvno: MyString

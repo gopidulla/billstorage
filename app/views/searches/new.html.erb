@@ -1,7 +1,19 @@
 <h1>Advanced Search</h1>
 
 
-<%= form_for @search do |f| %>
+<%= form_for @search, html: {class: "pure-form"} do |f| %>
+
+<div class="field">
+	<%= f.label :keywords %><br />
+  <%= f.text_field :keywords %>
+</div>
+
+
+<div class="field">
+	<%= f.label :section %><br />
+  <%= f.text_field :section %>
+</div>
+
 <div class="field">
   <%= f.label :month %><br />
   <%= f.text_field :month %>
@@ -13,5 +25,7 @@
 </div>
 
 
-<div class="actions"><%= f.submit "Search" %></div>
+<div class="actions"><%= f.submit "Search", class: "pure-form pure-button-primary" %></div>
 <% end %>
+
+<p><%= link_to 'Back', bills_path %></p>
