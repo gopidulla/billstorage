@@ -7,14 +7,18 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
  <span class="blink_me"><%= link_to 'Click Here',  new_bill_path, class: 'btn btn-min btn-success' %> </span>
 </div>
 
-<!--
+
 <div class="col-xs-6 col-md-4 pull-right">
-Search A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hidden="true"></span>
- <span class="blink_me"><%= link_to 'Click Here',  new_bill_path, class: 'btn btn-min btn-success' %> </span>
-</div>
--->
+ <%= form_tag bills_path, method: :get do %>
+  <p>
+       <%= text_field_tag :search, params[:search] %>
+       <%= button_tag "Search", name: nil %>
+  </p>
+  <% end %>
+  <p><%= link_to "Advanced Search", new_search_path %></p>
 </div>
 
+</div>
 <div class="row">
 <h1>Bills</h1>
 </div>
@@ -30,9 +34,9 @@ Search A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hi
       <th>Month</th>
       <th>Dvno</th>
       <th>Billtype</th>
-      <th>Compactor</th>
       <th>Rack</th>
       <th>Shelf</th>
+      <th>Shell Address</th>
       <th>Bundle No</th>
       <!--
       <th>User</th> -->
@@ -44,6 +48,7 @@ Search A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hi
     <% @bills.each do |bill| %>
       <tr>
         <td><%= bill.section %></td>
+
         <td><%= bill.month %></td>
         <td><%= bill.dvno %></td>
         <td><%= bill.typebill %></td>
@@ -57,9 +62,10 @@ Search A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hi
         <td><%= link_to 'Show', bill, class: 'btn btn-sm btn-info' %></td>
         <% if can? :manage, User %>
         <td><%= link_to 'Edit', edit_bill_path(bill), class: 'btn btn-sm btn-success' %></td>
-       
+       <% end %>
+       <!--
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
-<% end %>
+       -->
       </tr>
     <% end %>
   </tbody>

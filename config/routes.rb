@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :bills
+  resources :searches
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'welcome/index'
 

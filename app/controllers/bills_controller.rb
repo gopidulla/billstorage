@@ -25,6 +25,8 @@ class BillsController < ApplicationController
   def edit
   end
 
+  
+
   # POST /bills
   # POST /bills.json
   def create

@@ -22,17 +22,17 @@
 </p>
 
 <p>
-  <strong>Compactor:</strong>
+  <strong>Rack:</strong>
   <%= @bill.compactor %>
 </p>
 
 <p>
-  <strong>Rack:</strong>
+  <strong>Shelf:</strong>
   <%= @bill.rack %>
 </p>
 
 <p>
-  <strong>Shelf:</strong>
+  <strong>Shell Address:</strong>
   <%= @bill.shelf %>
 </p>
 
@@ -49,6 +49,6 @@
 <% if can? :manage, User %>
 <%= link_to 'Edit', edit_bill_path(@bill), class: 'btn btn-min btn-info' %> |
 <% end %>
-<%= link_to 'Back', bills_path, class: 'btn btn-min btn-default' %>
+<%= link_to 'Back', bills_path, class: 'btn btn-min btn-danger' %>
 
 </div>
