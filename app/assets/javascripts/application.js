@@ -22,7 +22,7 @@
 
  $(document).on('ready turbolinks:load', function(){
     $('.datepicker').datepicker({
-    	dateFormat: "yy-mm-dd"
+    	dateFormat: "yy-mm"
     }).datepicker("setDate", "0");
     });
     
