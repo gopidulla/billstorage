@@ -1,4 +1,20 @@
-<h1>Search Results</h1>
+<h1>Search Result</h1>
 
+<p><%= link_to 'Back', new_search_path %></p>
 
-<%= render @search.bill bills_path%>
+<% if @search.search_bills.empty? %>
+
+  <p>No Records Found</p>
+
+  <% else %>
+
+  <% @search.search_bills.each do |c| %>
+
+  <br>
+
+  <div class="div">
+  <h1><%= c.month %></h1>
+  <p>DVNO: <%= c.dvno %></p>
+  </div>
+  <% end %>
+  <% end %>

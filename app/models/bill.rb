@@ -8,4 +8,13 @@ class Bill < ApplicationRecord
     :less_than_or_equal_to => 9999,
     :message => "can only be whole number between 1 and 9999."
   
+
+   def self.search(search)
+		if search
+			where(["dvno LIKE ?", "%#{search}%"])
+		else
+			all
+		end
+	end
+
 end

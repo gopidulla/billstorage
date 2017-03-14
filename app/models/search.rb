@@ -1,14 +1,15 @@
 class Search < ApplicationRecord
-  
-  def bill
-  	  @bill ||= find_bills
-  end
 
+	def search_bills
 
-private 
+		bills = Bill.all
 
-def find_bills
-	
-	bills = bills.where(dvno: dvno) if dvno.present?
-end
+		bills = bills.where(["section LIKE ?", "%#{keywords}%"]) if keywords.present?
+		bills = bills.where(["month LIKE ?", month]) if month.present?
+		bills = bills.where(["dvno LIKE ?", dvno]) if dvno.present?
+
+		return bills
+		
+	end
+
 end
