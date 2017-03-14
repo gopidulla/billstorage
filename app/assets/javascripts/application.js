@@ -22,8 +22,10 @@
 
  $(document).on('ready turbolinks:load', function(){
     $('.datepicker').datepicker({
-    	dateFormat: "yy-mm"
-    }).datepicker("setDate", "0");
+    	format: "mm-yyyy",
+    viewMode: "months", 
+    minViewMode: "months"
+    })
     });
     
 
