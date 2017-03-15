@@ -2,30 +2,71 @@
 
 
 <%= form_for @search, html: {class: "pure-form"} do |f| %>
+<!--
+<div class="row">
 
-<div class="field">
-	<%= f.label :keywords %><br />
-  <%= f.text_field :keywords %>
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+	<%= f.label :keywords , class: 'control-label' %><br />
+	<div class="controls">
+  <%= f.text_field :keywords, class: 'control-label' %>
+  </div>
+  </div>
 </div>
 
 
-<div class="field">
-	<%= f.label :section %><br />
-  <%= f.text_field :section %>
+
+
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+  	<%= f.label :section, class: 'control-label' %><br />
+  	<div class="controls">
+  <%= f.text_field :section, class: 'control-label' %>
+  </div>
+  </div>
+  </div>
+  
+</div>
+-->
+<div class="border-form-div">
+<div class="row">
+
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+  <%= f.label :year, class: 'control-label' %><br />
+  <div class="controls">
+     <%= f.select(:year, options_for_select([["2010","2010"],["2011","2011"],["2012","2012"],["2013","2013"],["2014","2014"],["2015","2015"],["2016","2016"],["2017","2017"],["2018","2018"],["2019","2019"],["2020","2020"],["2021","2021"],["2022","2022"],["2023","2023"]], :selected => f.object.year), :include_blank => true) %>
+  </div>
+  </div>
 </div>
 
-<div class="field">
-  <%= f.label :month %><br />
-  <%= f.text_field :month %>
+
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+  <%= f.label :month, class: 'control-label' %><br />
+  <div class="controls">
+     <%= f.select(:month, options_for_select([["JAN", "JAN"],["FEB", "FEB"],["MAR", "MAR"],["APR", "APR"],["MAY", "MAY"],["JUN", "JUN"],["JUL", "JUL"],["AUG", "AUG"],["SEP", "SEP"],["OCT", "OCT"],["NOV", "NOV"],["DEC", "DEC"]],  :selected => f.object.month), :include_blank => true) %>
+  </div>
+  </div>
+</div>
 </div>
 
-<div class="field">
-<%= f.label :dvno %><br />
-<%= f.text_field :dvno %>
+<br />
+
+  <div class="control-group">
+<%= f.label :dvno, class: 'control-label' %><br />
+<div class="controls">
+<%= f.text_field :dvno, class: 'control-label' %>
+</div>
 </div>
 
 
-<div class="actions"><%= f.submit "Search", class: "pure-form pure-button-primary" %></div>
+
+<br />
+
+<div class="actions"><%= f.submit "Search", class: "btn btn-lg btn-info" %></div>
 <% end %>
+<br />
 
-<p><%= link_to 'Back', bills_path %></p>
+<p><%= link_to 'Back', bills_path, class: 'btn btn-md btn-danger' %></p>
+</div>

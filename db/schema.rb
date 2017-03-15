@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314180339) do
+ActiveRecord::Schema.define(version: 20170315094329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bills", force: :cascade do |t|
     t.string   "section"
-    t.date     "month"
+    t.string   "month"
     t.string   "dvno"
     t.string   "typebill"
     t.string   "compactor"
@@ -27,16 +27,22 @@ ActiveRecord::Schema.define(version: 20170314180339) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "bundleno"
+    t.string   "year"
     t.index ["user_id"], name: "index_bills_on_user_id", using: :btree
   end
 
   create_table "searches", force: :cascade do |t|
     t.string   "keywords"
     t.string   "section"
-    t.date     "month"
+    t.string   "month"
     t.string   "dvno"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "typebill"
+    t.string   "compactor"
+    t.string   "rack"
+    t.string   "shelf"
+    t.string   "year"
   end
 
   create_table "users", force: :cascade do |t|

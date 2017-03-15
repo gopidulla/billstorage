@@ -22,14 +22,24 @@
   </div>
   </div>
 
-<div class="col-lg-6 col-md-6">
+<div class="col-lg-3 col-md-3">
+  <div class="control-group">
+  
+    <%= f.label :year, class: 'control-label' %>
+    <div class="controls">
+     <%= f.select(:year, options_for_select([["2010","2010"],["2011","2011"],["2012","2012"],["2013","2013"],["2014","2014"],["2015","2015"],["2016","2016"],["2016","2016"],["2016","2016"],["2017","2017"],["2018","2018"],["2019","2019"],["2020","2020"],["2021","2021"]], :selected => f.object.year), :include_blank => true) %>
+  </div>
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3">
   <div class="control-group">
   
     <%= f.label :month, class: 'control-label' %>
     <div class="controls">
 
 
-    <%= f.date_select :month, { :discard_day => true} %>
+     <%= f.select(:month, options_for_select([["JAN", "JAN"],["FEB", "FEB"],["MAR", "MAR"],["APR", "APR"],["MAY", "MAY"],["JUN", "JUN"],["JUL", "JUL"],["AUG", "AUG"],["SEP", "SEP"],["OCT", "OCT"],["NOV", "NOV"],["DEC", "DEC"]],  :selected => f.object.month), :include_blank => true) %>
 
   </div>
 </div>
@@ -98,6 +108,7 @@
     <%= f.text_field :bundleno, class: 'control-label' %>
   </div>
 </div>
+<br />
 <!--
 <% if can? :manage, User %>
 
