@@ -12,6 +12,7 @@ class Bill < ApplicationRecord
    def self.search(search)
 		if search
 			where(["dvno LIKE ?", "%#{search}%"])
+      
 		else
 			all
 		end

@@ -1,6 +1,6 @@
-<h1>Search Result</h1>
+<h1>Search Results</h1>
 
-<p><%= link_to 'Back', new_search_path %></p>
+
 
 <% if @search.search_bills.empty? %>
 
@@ -12,9 +12,104 @@
 
   <br>
 
-  <div class="div">
-  <h1><%= c.month %></h1>
-  <p>DVNO: <%= c.dvno %></p>
+<div class="border-form-div">
+ <h1><%= c.section %></h1>
+
+<div class="row">
+
+<div class="col-lg-3 col-md-3">
+  <div class="control-group">
+
+  <strong>Year:</strong>
+  
+  <%= c.year %>
+  
+
+</div>
+</div>
+
+<div class="col-lg-3 col-md-3">
+  <div class="control-group">
+
+  <strong>Month:</strong>
+  
+  <%= c.month %>
+  
+
+
+</div>
+</div>
+
+
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+
+  <strong>Dvno:</strong>
+  
+  <%= c.dvno %>
+
+</div>
+</div>
+</div>
+
+<br />
+
+<div class="row">
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+
+  <strong>Billtype:</strong>
+  
+  <%= c.typebill %>
+
+</div>
+</div>
+
+
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+  <strong>Rack:</strong>
+  
+  <%= c.compactor %>
+
+</div>
+</div>
+</div>
+<br />
+
+<div class="row">
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+  <strong>Shelf:</strong>
+  
+  <%= c.rack %>
+ 
   </div>
+  </div>
+ 
+
+<div class="col-lg-6 col-md-6">
+  <div class="control-group">
+  <strong>Shell Address:</strong>
+  
+  <%= c.shelf %>
+
+</div>
+</div>
+</div>
+<br />
+
+<p>
+  <strong>BundleNo:</strong>
+  <%= c.bundleno %>
+</p>
+
+<br />
+
+
+ <p><%= link_to 'Back', new_search_path, class: 'btn btn-md btn-danger' %></p>
+  </div>
+
+ 
   <% end %>
   <% end %>
