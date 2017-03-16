@@ -62,9 +62,9 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
         <% if can? :manage, User %>
         <td><%= link_to 'Edit', edit_bill_path(bill), class: 'btn btn-sm btn-success' %></td>
        <% end %>
-       
+       <!--
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
-      
+      -->
       </tr>
     <% end %>
   </tbody>
