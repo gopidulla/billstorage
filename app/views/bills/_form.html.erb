@@ -17,7 +17,11 @@
   <div class="control-group">
     <%= f.label :section, class: 'control-label' %>
     <div class="controls">
-      <%= f.select(:section, options_for_select([["ADMIN","ADMIN"],["ACCOUNTS","ACCOUNTS"],["OACELL", "OACELL"],["TADA", "TADA"], ["MEDICALL", "MEDICALL"],["STORE-I", "STORE-I"],["STORE-II", "STORE-II"],["MISC", "MISC"],["SFD-I", "SFD-I"],["SFD-II", "SFD-II"],["PAY-I", "PAY-I"],["PAY-II", "PAY-II"],["PAY-III", "PAY-III"],["R-SECTION", "R-SECTION"],["IA CELL", "IA CELL"],["CAG", "CAG"],["SINGLE WINDOW", "SINGLE WINDOW"], ["NPS", "NPS"],["FUND CELL", "FUND CELL"],["LAO","LAO"], ["D-SECTION", "D-SECTION"]], :selected => f.object.section), :include_blank => true) %>
+
+    <%= f.collection_select(:section, Section.all, :name, :name, 
+    { prompt: 'Select a section' }, { id: 'section-select' }) %>
+
+       
   </div>
   </div>
   </div>
@@ -62,7 +66,14 @@
   <div class="control-group">
     <%= f.label :Billtype, class: 'control-label' %>
     <div class="controls">
-   <%= f.select(:typebill, options_for_select([["LOCAL PURCHASE","LOCAL PURCHASE"],["CONTRACT BILLS","CONTRACT BILLS"],["TRANSPORT", "TRANSPORT"],["CASH PURCHASE", "CASH PURCHASE"], ["IMPRESET", "IMPRESET"],["DEPOSITOR", "DEPOSITOR"],["RCP", "RCP"],["AMC", "AMC"],["PRO RATA", "PRO RATA"],["ADVANCE", "ADVANCE"]], :selected => f.object.section), :include_blank => true) %>
+
+ <%= f.grouped_collection_select :typebill, Section.all, :typebills, 
+    :name, :name, :name, { include_blank: 'Select a typebill' }, { id: 'typebill-select' } %>
+  
+   
+
+
+   
   </div>
 </div>
 </div>

@@ -2,12 +2,8 @@
 
 one:
   name: MyString
-  bills: one
-  sections: one
-  users: one
+  section_id: 1
 
 two:
   name: MyString
-  bills: two
-  sections: two
-  users: two
+  section_id: 1

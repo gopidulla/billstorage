@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require bills
 //= require turbolinks
 //= require_tree .
 
@@ -39,3 +40,20 @@ blinker = function() {
 
 setInterval(blinker, 1000);
 
+
+$(document).on('ready turbolinks:load', function(){
+jQuery(function() {
+  var typebill;
+  typebill = $('#typebill-select').html();
+  return $('#section-select').change(function() {
+    var cat, options;
+    cat = jQuery('#section-select').children('option').filter(':selected').text();
+    options = $(typebill).filter("optgroup[label='" + cat + "']").html();
+    if (options) {
+      return $('#typebill-select').html(options);
+    } else {
+      return $('#typebill-select').empty();
+    }
+  });
+});
+});

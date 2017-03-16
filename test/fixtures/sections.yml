@@ -2,10 +2,6 @@
 
 one:
   name: MyString
-  bill: one
-  user: one
 
 two:
   name: MyString
-  bill: two
-  user: two
