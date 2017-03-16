@@ -22,3 +22,21 @@ CSV.foreach(Rails.root.join("typebills.csv"), headers: true) do |row|
     typebill.section_id = row[2]
   end
 end
+
+
+
+puts "Importing rocks..."
+CSV.foreach(Rails.root.join("rocks.csv"), headers: true) do |row|
+  Rock.create! do |rock|
+    rock.id = row[0]
+    rock.name = row[1]
+  end
+end
+
+puts "Importing shelves..."
+CSV.foreach(Rails.root.join("shelves.csv"), headers: true) do |row|
+  Shelf.create! do |shelf|
+    shelf.name = row[0]
+    shelf.rock_id = row[2]
+  end
+end

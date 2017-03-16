@@ -95,7 +95,12 @@
   <div class="control-group">
     <%= f.label :Shelf, class: 'control-label' %>
     <div class="controls">
-   <%= f.select(:rack, options_for_select([["A","A"],["B","B"],["C", "C"]], :selected => f.object.rack), :include_blank => true) %>
+
+    <%= f.collection_select(:rock, Rock.all, :name, :name, 
+    { prompt: 'Select a Shelf' }, { id: 'rock-select' }) %>
+
+
+   
   </div>
 </div>
 </div>
@@ -107,7 +112,12 @@
   <div class="control-group">
     <%= f.label :ShellAddress, class: 'control-label' %>
     <div class="controls">
-    <%= f.select(:shelf, options_for_select([["A1","A1"],["A2","A2"],["A3", "A3"],["A4", "A4"], ["A5", "A5"],["A6", "A6"],["A7", "A7"],["A8", "A8"],["A9", "A9"],["A10", "A10"],["A11", "A11"],["A12", "A12"]], :selected => f.object.shelf), :include_blank => true) %>
+
+    <%= f.grouped_collection_select :shelf, Rock.all, :shelves, 
+    :name, :name, :name, { include_blank: 'Select a Shelf' }, { id: 'shelf-select' } %>
+
+
+    
   </div>
 </div>
 </div>
@@ -137,6 +147,6 @@
 <br>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "StoreBill", class: 'btn btn-lg btn-warning center-block'%>
   </div>
 <% end %>

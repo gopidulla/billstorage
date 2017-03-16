@@ -57,3 +57,21 @@ jQuery(function() {
   });
 });
 });
+
+
+$(document).on('ready turbolinks:load', function(){
+jQuery(function() {
+  var shelf;
+  shelf = $('#shelf-select').html();
+  return $('#rock-select').change(function() {
+    var cat, options;
+    cat = jQuery('#rock-select').children('option').filter(':selected').text();
+    options = $(shelf).filter("optgroup[label='" + cat + "']").html();
+    if (options) {
+      return $('#shelf-select').html(options);
+    } else {
+      return $('#shelf-select').empty();
+    }
+  });
+});
+});

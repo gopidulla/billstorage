@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170316094027) do
+ActiveRecord::Schema.define(version: 20170316160925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20170316094027) do
     t.string   "dvno"
     t.string   "typebill"
     t.string   "compactor"
-    t.string   "rack"
+    t.string   "rock"
     t.string   "shelf"
     t.integer  "user_id"
     t.datetime "created_at",  null: false
@@ -30,7 +30,15 @@ ActiveRecord::Schema.define(version: 20170316094027) do
     t.string   "year"
     t.integer  "section_id"
     t.integer  "typebill_id"
+    t.integer  "rock_id"
+    t.integer  "shelf_id"
     t.index ["user_id"], name: "index_bills_on_user_id", using: :btree
+  end
+
+  create_table "rocks", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "searches", force: :cascade do |t|
@@ -49,6 +57,13 @@ ActiveRecord::Schema.define(version: 20170316094027) do
 
   create_table "sections", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shelves", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "rock_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
