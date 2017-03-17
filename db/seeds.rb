@@ -19,7 +19,7 @@ puts "Importing typebills..."
 CSV.foreach(Rails.root.join("typebills.csv"), headers: true) do |row|
   Typebill.create! do |typebill|
     typebill.name = row[0]
-    typebill.section_id = row[2]
+    typebill.section_id = row[1]
   end
 end
 
@@ -37,6 +37,6 @@ puts "Importing shelves..."
 CSV.foreach(Rails.root.join("shelves.csv"), headers: true) do |row|
   Shelf.create! do |shelf|
     shelf.name = row[0]
-    shelf.rock_id = row[2]
+    shelf.rock_id = row[1]
   end
 end
