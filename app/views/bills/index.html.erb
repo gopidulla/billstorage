@@ -31,7 +31,13 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
       <th>Section</th>
       <th>Year</th>
       <th>Month</th>
-      <th>Dvno</th>
+    
+    <th> Dvnos</th>
+      
+   
+  
+      
+     
       <th>Billtype</th>
       <th>Rack</th>
       <th>Shelf</th>
@@ -49,7 +55,22 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
         <td><%= bill.section %></td>
         <td><%= bill.year %></td>
         <td><%= bill.month %></td>
-        <td><%= bill.dvno %></td>
+
+  <% if bill.dvs.any? %>
+   
+    
+      <% bill.dvs.each do |dv| %>
+      <th>
+        
+          <%= dv.dvno %>
+       </th>
+      <% end %>
+   
+  <% end %>
+
+
+         
+
         <td><%= bill.typebill %></td>
         <td><%= bill.compactor %></td>
         <td><%= bill.rock %></td>
@@ -62,11 +83,12 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
         <% if can? :manage, User %>
         <td><%= link_to 'Edit', edit_bill_path(bill), class: 'btn btn-sm btn-success' %></td>
        <% end %>
-       <!--
+       
         <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
-      -->
+     
       </tr>
     <% end %>
+    
   </tbody>
 </table>
 </div>

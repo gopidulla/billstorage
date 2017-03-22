@@ -20,6 +20,7 @@ class BillsController < ApplicationController
   # GET /bills/new
   def new
     @bill = Bill.new
+    0.times { @bill.dvs.build}
   end
 
   # GET /bills/1/edit
@@ -77,6 +78,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:section, :year, :month, :dvno, :typebill, :compactor, :rock, :shelf, :bundleno, :section_id, :typebill_id, :user_id)
+      params.require(:bill).permit(:section, :year, :month, :dvno, :typebill, :compactor, :rock, :shelf, :bundleno, :section_id, :typebill_id, :user_id, dvs_attributes: [:dvno])
     end
 end

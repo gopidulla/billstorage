@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 	def new
 		@search = Search.new
-
+        0.times {@search.dvs.build}
 	end
 
 	def create
@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
 	private
 
 	def search_params
-		params.require(:search).permit(:keywords, :section, :year, :month, :dvno)
+		params.require(:search).permit(:keywords, :section, :year, :month, dvs_attributes: [:dvno])
 		
 	end
 end

@@ -19,9 +19,17 @@
 
 <p>
   <strong>Dvno:</strong>
-  <%= @bill.dvno %>
-</p>
+   
+   <% if @bill.dvs.any? %>
 
+<% @bill.dvs.each do |dv| %>
+
+  <%= dv.dvno %>
+
+  <% end %>
+   
+  <% end %>
+</p>
 <p>
   <strong>Billtype:</strong>
   <%= @bill.typebill %>
