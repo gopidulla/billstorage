@@ -17,19 +17,13 @@
   <%= @bill.month %>
 </p>
 
+
 <p>
-  <strong>Dvno:</strong>
-   
-   <% if @bill.dvs.any? %>
-
-<% @bill.dvs.each do |dv| %>
-
-  <%= dv.dvno %>
-
-  <% end %>
-   
-  <% end %>
+  <strong>DVNO:</strong>
+  <%= @bill.dvno %>
 </p>
+
+
 <p>
   <strong>Billtype:</strong>
   <%= @bill.typebill %>

@@ -1,9 +1,5 @@
 class Search < ApplicationRecord
 
-has_many :dvs, dependent: :destroy, inverse_of: :search
-
-accepts_nested_attributes_for :dvs, allow_destroy: true,
-                              reject_if: ->(attrs) { attrs['dvno'].blank? }
 
 validates_numericality_of :dvno, :only_integer => true, :allow_nil => true, 
     :greater_than_or_equal_to => 1,
@@ -19,7 +15,7 @@ validates_numericality_of :dvno, :only_integer => true, :allow_nil => true,
 		bills = bills.where(["year LIKE ?", year]) if year.present?
 		bills = bills.where(["month LIKE ?", month]) if month.present?
 
-		dvs = dvs.where(["dvno LIKE ?", dvno]) if dvno.present?
+		bills = bills.where(["dvno LIKE ?", dvno]) if dvno.present?
 
 		return bills
 		

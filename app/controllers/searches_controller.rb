@@ -16,7 +16,7 @@ class SearchesController < ApplicationController
 	private
 
 	def search_params
-		params.require(:search).permit(:keywords, :section, :year, :month, dvs_attributes: [:dvno])
+		params.require(:search).permit(:keywords, :section, :year, :month, :dvno)
 		
 	end
 end

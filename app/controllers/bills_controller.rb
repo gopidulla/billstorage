@@ -13,6 +13,7 @@ class BillsController < ApplicationController
    respond_to do |format|
       format.html
       format.csv { send_data @bills.to_csv }
+
      end
   end
 
@@ -37,7 +38,6 @@ class BillsController < ApplicationController
   def edit
   end
 
-  
 
   # POST /bills
   # POST /bills.json

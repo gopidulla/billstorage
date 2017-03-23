@@ -22,20 +22,25 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
 </div>
 
 
+<div class="row">
 
-<h2>Import Bills</h2>
-
+<h3>Store A Multi Bill?</h3>
+<div class="col-lg-6 col-md-4">
 <%= form_tag import_bills_path, multipart: true do %>
   <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
 <% end %>
+</div>
 
+<div class="col-lg-6 col-md-4">
 
 <p>
   Download:
-  <%= link_to "CSV", bills_path(format: "csv") %> |
-  <%= link_to "Excel", bills_path(format: "xls") %>
+  <%= link_to "CSV", bills_path(format: "csv") %>
+  
 </p>
+</div>
+</div>
 
 <div class="media">
  
