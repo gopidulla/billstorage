@@ -11,7 +11,7 @@ class Bill < ApplicationRecord
 
 validates_uniqueness_of :dvno, :scope => :month
 
-  validates :section, :month, :typebill, :compactor, :rock, :shelf,  :presence => true
+  validates :section, :month, :typebill, :compactor, :rock, :shelf, :bundleno,  :presence => true
 
 
   validates_numericality_of :dvno, :only_integer => true, :allow_nil => true, 
