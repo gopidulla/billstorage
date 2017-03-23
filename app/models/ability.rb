@@ -12,11 +12,14 @@ if user.superadmin_role?
       can :dashboard                  # allow access to dashboard
 end
 if user.supervisor_role?
-      can :read, :all
+      can :read, Bill#:all
+      can :create, :all
       can :edit, Bill
       can :update, Bill
-      can :destroy, Bill
+      #can :destroy, Bill
       can :manage, User
+      can :manage, Bill
+
 end
 
 if user.user_role?
