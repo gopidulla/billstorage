@@ -9,7 +9,12 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
     @bills = Bill.accessible_by(current_ability).paginate(:page => params[:page]).order('user_id').per_page(10).order(created_at: :desc).search(params[:search])#all
-  
+   
+   respond_to do |format|
+      format.html
+      format.csv { send_data @bills.to_csv }
+
+     end
   end
 
   # GET /bills/1
@@ -17,16 +22,22 @@ class BillsController < ApplicationController
   def show
   end
 
+  def import
+    Bill.import(params[:file])
+    
+    redirect_to root_url, notice: 'Bills imported.'
+  end
+
   # GET /bills/new
   def new
     @bill = Bill.new
+    #0.times { @bill.dvs.build}
   end
 
   # GET /bills/1/edit
   def edit
   end
 
-  
 
   # POST /bills
   # POST /bills.json
@@ -77,6 +88,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:section, :year, :month, :dvno, :typebill, :compactor, :rock, :shelf, :bundleno, :section_id, :typebill_id, :user_id)
+      params.require(:bill).permit(:section, :year, :month, :dvno, :typebill, :compactor, :rock, :shelf, :bundleno, :section_id, :typebill_id, :user_id) #dvs_attributes: [:dvno])
     end
 end

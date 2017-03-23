@@ -1,7 +1,7 @@
 class SearchesController < ApplicationController
 	def new
 		@search = Search.new
-
+        0.times {@search.dvs.build}
 	end
 
 	def create

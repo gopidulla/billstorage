@@ -16,6 +16,8 @@
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
 //= require bills
+//= require cocoon
+//= require global
 //= require turbolinks
 //= require_tree .
 

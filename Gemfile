@@ -35,8 +35,10 @@ gem 'will_paginate'
 
 gem 'jquery-turbolinks'
 
+gem 'roo'
 
-
+gem "cocoon"
+gem 'jquery-ui-rails'
 #gem 'momentjs-rails'
 
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
