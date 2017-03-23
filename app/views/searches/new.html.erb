@@ -52,14 +52,13 @@
 </div>
 
 <br />
+ <div class="control-group">
+<%= f.label :dvno, class: 'control-label' %><br />
+<div class="controls">
+<%= f.text_field :dvno, class: 'control-label' %>
+</div>
+</div>
 
- <div id="dvs">
-      <%= f.fields_for :dvs do |dv| %>
-        <%= render 'dv_fields', f: dv %>
-     
-<% end %>
-       
-      </div>
 
 
 

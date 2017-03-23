@@ -35,6 +35,7 @@ gem 'will_paginate'
 
 gem 'jquery-turbolinks'
 
+gem 'roo'
 
 gem "cocoon"
 gem 'jquery-ui-rails'

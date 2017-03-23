@@ -22,6 +22,21 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
 </div>
 
 
+
+<h2>Import Bills</h2>
+
+<%= form_tag import_bills_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
+
+
+<p>
+  Download:
+  <%= link_to "CSV", bills_path(format: "csv") %> |
+  <%= link_to "Excel", bills_path(format: "xls") %>
+</p>
+
 <div class="media">
  
   <div class="media-body">
@@ -31,13 +46,7 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
       <th>Section</th>
       <th>Year</th>
       <th>Month</th>
-    
-    <th> Dvnos</th>
-      
-   
-  
-      
-     
+    <th> Dvno</th>
       <th>Billtype</th>
       <th>Rack</th>
       <th>Shelf</th>
@@ -54,23 +63,8 @@ Store A Bill? <br><span class="glyphicon glyphicon-hand-right blink_me" aria-hid
       <tr>
         <td><%= bill.section %></td>
         <td><%= bill.year %></td>
-        <td><%= bill.month %></td>
-
-  <% if bill.dvs.any? %>
-   
-    
-      <% bill.dvs.each do |dv| %>
-      <th>
-        
-          <%= dv.dvno %>
-       </th>
-      <% end %>
-   
-  <% end %>
-
-
-         
-
+        <td><%= bill.month %></td>  
+        <td><%= bill.dvno %></td>  
         <td><%= bill.typebill %></td>
         <td><%= bill.compactor %></td>
         <td><%= bill.rock %></td>

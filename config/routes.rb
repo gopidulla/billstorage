@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  resources :bills
+  get 'bill_imports/new'
+
+  resources :bill_imports
+  resources :bills do
+    collection do
+      post :import
+    end
+  end
+
   resources :searches
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'welcome/index'
