@@ -25,7 +25,7 @@ class BillsController < ApplicationController
   def import
     Bill.import(params[:file])
     
-    redirect_to root_url, notice: 'Bills imported.'
+    redirect_to root_url, notice: 'Uploaded Bills Was Successfully imported.'
   end
 
   # GET /bills/new
