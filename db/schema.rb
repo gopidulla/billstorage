@@ -40,6 +40,14 @@ ActiveRecord::Schema.define(version: 20170323034954) do
     t.index ["user_id"], name: "index_bills_on_user_id", using: :btree
   end
 
+  create_table "dvnos", force: :cascade do |t|
+    t.string   "dvno"
+    t.integer  "bills_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bills_id"], name: "index_dvnos_on_bills_id", using: :btree
+  end
+
   create_table "rocks", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -101,4 +109,5 @@ ActiveRecord::Schema.define(version: 20170323034954) do
   end
 
   add_foreign_key "bills", "users"
+  add_foreign_key "dvnos", "bills", column: "bills_id"
 end
